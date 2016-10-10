@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>NameCalculator</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+
+	<style type="text/css">
+		body{
+						text-align: center;
+		}
+
+		#header{
+			margin: 0 auto;
+			background-color:lightblue;
+			color:white;
+		}
+
+		#section{
+			margin-top:10%;
+		}
+
+		#footer{
+			margin-top:10%;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div ng-controller="MainController">
+
+
+
+		<div id="header">
+			<h1>Coursera</h1>
+
+			<h2>Angular JS - Assignment 1</h2>
+		</div>
+
+
+
+		<div id="section">
+			<h4>Enter your lunch items here (with a space).</h4>
+			<input type="text" ng-model="eatables"><br>
+			<br>
+			<button ng-click="cal();">Check If Too Much</button>
+
+			{{value}}
+			{{message}}
+		</div>
+
+
+
+		<div id="footer">
+			<h4>Submitted To : {{prof_name}}</h4>
+			<h4>Submitted By : {{stu_name}}</h4>
+		</div>
+
+
+	</div>
+
+	<script type="text/javascript">
+		
+		var app = angular.module('app', []).
+		controller('MainController', myFunction);
+
+		myFunction.$inject = ['$scope'];
+
+		function myFunction ($scope){
+
+			$scope.message = " ";
+
+			$scope.prof_name = "YAAKOV CHAIKIN";
+
+			$scope.stu_name = "RINKU MALIK";
+
+			$scope.eatables = "";
+
+			$scope.value = 0;
+
+			$scope.cal = function (){
+
+				var totalItems = stringSplit($scope.eatables);
+
+				$scope.value = totalItems;
+
+				if($scope.value = 0){
+					$scope.message = "Please enter something";
+				}else if($scope.value <= 3){
+					$scope.message = "Enjoy!";
+				}else{
+					$scope.message = "TOO MUCH!";
+				}
+			};
+
+			function stringSplit(string){
+				var array = string.split(" ");
+
+				var x = array.length;
+
+				return x;
+			};
+
+
+
+		};
+
+	</script>
+
+</body>
+</html>
