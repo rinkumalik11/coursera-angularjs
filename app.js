@@ -35,11 +35,16 @@
 			};
 
 			function stringSplit(string){
-				var array = string.split(",");
+				if (!string){
+					var x = 0;
+					return x;
+				}else{
+					var array = string.split(",");
 
 				var x = array.length;
 
 				return x;
+				}	
 			};
 
 
